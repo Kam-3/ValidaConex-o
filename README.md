@@ -5,4 +5,4 @@ Este projeto é um script simples em Python para validar a comunicação com a A
 ## Como rodar
 1. Instale as dependências: `pip install -r requirements.txt`
 2. Insira sua chave de API no script.
-3. Execute: `python valida_conexao.py`
+3. Execute: `python iniciar_chat.py`
