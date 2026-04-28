@@ -1,25 +1,29 @@
 from google import genai
 
-GOOGLE_API_KEY = "COLOQUE_SUA_CHAVE_AQUI"
+GOOGLE_API_KEY = "AIzaSyDort8NrJdJHcvSbrD8X_ZcxMRc48C8wKQ"
 
-def validar_conexao():
+def iniciar_chat():
     try:
         client = genai.Client(api_key=GOOGLE_API_KEY)
+        print("Chat com o Gemini iniciado, digite 'sair' para encerrar")
 
-        print("Testando conexão com a API do Gemini...")
-        
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents="Responda apenas com a palavra: 'Conectado!'"
-        )
-        
-        if response.text:
-            print(f"Sucesso! Retorno da API: {response.text}")
-            return True
-            
+        while True:
+            pergunta = input("\nVocê: ")
+
+            if pergunta.lower() in ["Sair", "exit", "quit"]:
+                print("Encerrando chat")
+                break
+
+            response = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=pergunta
+            )
+
+            print(f"Gemini: {response.text}")
+
     except Exception as e:
-        print(f"Erro ao conectar na API: {e}")
-        return False
+        print(f"Erro na conexão: {e}")
 
 if __name__ == "__main__":
-    validar_conexao()
+    iniciar_chat()
+
