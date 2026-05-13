@@ -1,6 +1,6 @@
 from google import genai
 
-GOOGLE_API_KEY = "AIzaSyDort8NrJdJHcvSbrD8X_ZcxMRc48C8wKQ"
+GOOGLE_API_KEY = "sua_chave"
 
 def iniciar_chat():
     try:
